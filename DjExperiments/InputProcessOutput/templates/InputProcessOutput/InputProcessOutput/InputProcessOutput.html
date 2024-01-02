@@ -1,0 +1,18 @@
+{% extends "InputProcessOutput/base.html" %}
+{% block title %}DISPLAY{% endblock %}
+{% block content %}
+ {% if entered %}
+    <h1>{{ title }}</h1>
+    {{ msg|linebreaks }}
+ {% else %}
+ <center>
+    <br><hr><br>
+    <h1>PLEASE FILL THE FORM</h1>
+    <form action="." method="post">
+       {{ form.as_p }}
+       {% csrf_token %}
+       <input type="submit" value="Submit">
+    </form>
+ </center>
+ {% endif %}
+{% endblock %}
